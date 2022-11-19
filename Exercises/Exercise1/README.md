@@ -33,16 +33,23 @@ cqlsh> CREATE TABLE edem.students (
     PRIMARY KEY (studentid)
 );
 
+
+
 # Query it
 cqlsh> select * from edem.students;
+
+cqlsh> select * from message.app;
 
 # Let's insert some data
 cqlsh> insert into edem.students (studentid, name, age) values (now(), 'John Doe', 25);
 cqlsh> insert into edem.students (studentid, name, age) values (now(), 'Alice', 22);
 cqlsh> insert into edem.students (studentid, name, age) values (now(), 'Bob', 22) USING TTL 30;
 
+
+
 # And query (several times, for example try again in 1 minute)
 cqlsh> select * from edem.students;
+
 ```
 
 **Exercise 1**:

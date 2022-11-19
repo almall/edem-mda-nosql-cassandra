@@ -45,3 +45,21 @@ We want to create the tables required for a persistent messaging system similar 
 
 * DDL scripts for the required table(s)
 * Explanation of the data model
+
+# Create a new table
+
+cqlsh> CREATE KEYSPACE message WITH  replication = {'class': 'SimpleStrategy', 'replication_factor' : 3};
+
+cqlsh> CREATE TABLE message.app (
+    student_id uuid,
+    message text,
+    chat_id uuid,
+    group_id uuid,
+    PRIMARY KEY (student_id)
+);
+
+qlsh> select * from message.app;
+
+cqlsh> insert into message.app (student_id, message, chat_id, group_id) values (now(), 'Hola', '001', '011');
+
+cqlsh> select * from message.app;
